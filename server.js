@@ -12,8 +12,12 @@ const port = 8000;
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Handle Vue Router history mode
-app.get('*', (req, res) => {
+// Handle Vue Router history mode - only serve index.html for non-file requests
+app.get('*', (req, res, next) => {
+    // If the request has a file extension, skip to static middleware
+    if (path.extname(req.path)) {
+        return next();
+    }
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

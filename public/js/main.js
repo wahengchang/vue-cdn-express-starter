@@ -1,5 +1,5 @@
 import { router } from './router.js';
-import Navbar from './components/Navbar.js';
+import Navbar from './pages/Navbar.js';
 
 const app = Vue.createApp({
     template: `

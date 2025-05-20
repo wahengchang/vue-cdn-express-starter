@@ -1,0 +1,20 @@
+[include]
+public/**
+server.js
+package.json
+package-lock.json
+
+[exclude]
+node_modules/**
+dist/**
+build/**
+*.log
+
+[build]
+command = echo "No build required for CDN usage"
+
+[deploy]
+output = public
+
+[env]
+# NODE_ENV = production
